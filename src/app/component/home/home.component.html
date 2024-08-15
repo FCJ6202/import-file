@@ -1,0 +1,27 @@
+<div class="flex flex-col gap-6 max-w-7xl h-full mx-auto mt-12">
+    <h1 class="text-3xl font-bold">
+      Upload CSV
+    </h1>
+
+    @if (!isUploading) {
+      <app-file (onFileChange)="getFileData($event)" ></app-file>
+    } @else {
+        <app-tick></app-tick>
+        <div class="grid grid-cols-2 gap-4 shadow-md rounded-md border-b border-gray-300 p-4 border-r-amber-50 mt-12">
+          <div class="mr-8">File Details</div>
+          <div class="flex flex-row items-center justify-between ml-8">
+            <span class="text-blue-500">Success</span>
+            <span>{{successRow}}</span>
+          </div>
+          <div class="flex flex-row items-center justify-between mr-8">
+            <span>Total no of Records</span>
+            <span>{{totalRecord}}</span>
+          </div>
+          <div class="flex flex-row items-center justify-between ml-8">
+            <span class="text-red-500">Failure</span>
+            <span>{{failureRow}}</span>
+          </div>
+        </div>
+        <button (click)="goToShowData()" type="button" class="mx-auto rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Access the data</button>
+    }
+</div>
